@@ -10,7 +10,7 @@ import dbConfig from './config/database.config';
   imports: [
     ConfigModule.forRoot({
       load: [dbConfig],
-      envFilePath: ['.env.yaml'],
+      envFilePath: ['.env.yml'],
     }),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
