@@ -36,7 +36,7 @@ export class RecipesController {
   @Get()
   async findAll(@Req() request: Request) {
     const recipes: Array<Recipe> = await this.recipeService.findAll();
-    return recipes;
+    return { recipes: recipes };
   }
 
   @Get(':id')
@@ -51,7 +51,7 @@ export class RecipesController {
         .status(HttpStatus.OK)
         .send({ message: 'Recipe details by id', recipes: [recipes] });
     }
-    return response.status(HttpStatus.NOT_FOUND).send({
+    return response.status(HttpStatus.OK).send({
       message: 'Recipe details by id not found',
     });
   }
@@ -74,7 +74,7 @@ export class RecipesController {
         .send({ message: 'Recipe successfully removed!' });
     } else {
       return response
-        .status(HttpStatus.NOT_FOUND)
+        .status(HttpStatus.OK)
         .send({ message: 'No recipe was found!' });
     }
   }
