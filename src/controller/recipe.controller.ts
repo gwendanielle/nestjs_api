@@ -49,7 +49,7 @@ export class RecipesController {
     if (recipes) {
       return response
         .status(HttpStatus.OK)
-        .send({ message: 'Recipe details by id', recipes: [recipes] });
+        .send({ message: 'Recipe details by id', recipe: [recipes] });
     }
     return response.status(HttpStatus.OK).send({
       message: 'Recipe details by id not found',
