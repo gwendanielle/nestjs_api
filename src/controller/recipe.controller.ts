@@ -22,12 +22,12 @@ export class RecipesController {
   async create(@Body() createRecipeDto: Recipe, @Res() response: Response) {
     const recipe = await this.recipeService.create(createRecipeDto);
     if (!recipe) {
-      return response.status(HttpStatus.BAD_REQUEST).send({
+      return response.status(HttpStatus.OK).send({
         message: 'error in creating recipe',
         required: 'title, making_time, serves, ingredients, cost',
       });
     }
-    return response.status(HttpStatus.CREATED).send({
+    return response.status(HttpStatus.OK).send({
       message: 'recipe created successfully',
       recipe: recipe,
     });
