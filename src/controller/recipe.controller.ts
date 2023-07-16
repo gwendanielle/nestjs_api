@@ -28,7 +28,7 @@ export class RecipesController {
       });
     }
     return response.status(HttpStatus.OK).send({
-      message: 'recipe created successfully',
+      message: 'Recipe successfully created!',
       recipe: recipe,
     });
   }
