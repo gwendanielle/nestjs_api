@@ -29,7 +29,7 @@ export class RecipesController {
     }
     return response.status(HttpStatus.OK).send({
       message: 'Recipe successfully created!',
-      recipe: recipe,
+      recipe: [recipe],
     });
   }
 
